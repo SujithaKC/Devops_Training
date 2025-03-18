@@ -1,0 +1,22 @@
+sudo apt update -y
+sudo apt install -y openjdk-17-jdk
+java -version
+sudo apt update && sudo apt upgrade -y
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee /etc/apt/keyrings/jenkins.asc > /dev/null
+echo "deb [signed-by=/etc/apt/keyrings/jenkins.asc] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt update
+sudo apt install jenkins -y
+sudo systemctl enable --now jenkins
+sudo systemctl status Jenkins
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+(535dd9073c6041839ed1010bcb510b6f)
+
+Installing nginx
+
+sudo apt update -y
+sudo apt install nginx -y
+dpkg -l | grep nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl status nginx
